@@ -15,6 +15,7 @@ import {
 import React, { useState } from "react"
 
 import { Link, useNavigate } from "react-router-dom"
+import { useCart } from "../context/CartContext"
 
 const Navbar = () => {
     // TODO: replace these stubs with your real auth / cart context
@@ -22,11 +23,7 @@ const Navbar = () => {
         name: "Mohib", email: "mohibuddinakon@gmail.com",
         isAdmin: true
     }
-    const { cartCount, setIsCartOpen } = {
-        cartCount: 5,
-        setIsCartOpen: (_data: boolean) => { },
-    }
-
+    const { cartCount, setIsCartOpen } = useCart()
     const [searchQuery, setSearchQuery] = useState("")
     const [userMenuOpen, setUserMenuOpen] = useState(false)
     const navigate = useNavigate()

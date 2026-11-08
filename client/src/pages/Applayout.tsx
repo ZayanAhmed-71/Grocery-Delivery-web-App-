@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import Banner from "../component/Banner"
 import Navber from "../component/Navber"
 import Footer from "../component/Home/Footer"
+import CartSidebar from "../component/CartSidebar"
 
 const Applayout = () => {
   return (
@@ -13,6 +14,7 @@ const Applayout = () => {
       <Outlet/>
     </main>
     <Footer/>
+    <CartSidebar/>
     </>
   )
 }
