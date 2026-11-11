@@ -12,6 +12,15 @@ import MyOrders from './pages/MyOrders'
 import OrderTracking from './pages/OrderTracking'
 import Addresses from './pages/Addresses'
 import ProtectedRoute from './component/ProtectedRoute'
+import AdminLayout from './pages/admin/AdminLayout'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import AdminProducts from './pages/admin/AdminProducts'
+import AdminProductForm from './pages/admin/AdminProductForm'
+import AdminOrders from './pages/admin/AdminOrders'
+import AdminDeliveryPartners from './pages/admin/AdminDeliveryPartners'
+import DeliveryLogin from './pages/delivery/DeliveryLogin'
+import DeliveryLayout from './pages/delivery/DeliveryLayout'
+import DeliveryDashboard from './pages/delivery/DeliveryDashboard'
 
 function App() {
   return (
@@ -23,7 +32,6 @@ function App() {
         <Route path='/login' element={<Login />} />
 
         {/* Auth pages - NO Navber & Footer */}
-
         <Route path='/' element={<Applayout />}>
           <Route index element={<Home />} />
           <Route path='products' element={<Products />}/>
@@ -39,8 +47,23 @@ function App() {
            <Route path='addresses' element={<Addresses />} />
           
           </Route>
-
         </Route>
+{/* Admin pages */}
+<Route path='/admin' element={<AdminLayout />}>
+  <Route index element={<AdminDashboard />}/>
+  <Route path='products' element={<AdminProducts />}/>
+  <Route path='products/new' element={<AdminProductForm />}/>
+  <Route path='products/:id/edit' element={<AdminProductForm />}/>
+  <Route path='orders' element={<AdminOrders />}/>
+  <Route path='delivery-partners' element={<AdminDeliveryPartners />}/>
+</Route>
+
+{/* Delivery Partner pages */}
+<Route path='/delivery/login' element={<DeliveryLogin />}/>
+<Route path='/delivery' element={<DeliveryLayout />}>
+  <Route index element={<DeliveryDashboard />}/>
+</Route>
+        
 
       </Routes>
     </>
