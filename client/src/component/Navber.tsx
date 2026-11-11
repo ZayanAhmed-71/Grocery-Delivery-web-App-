@@ -28,14 +28,15 @@ const Navbar = () => {
     const [userMenuOpen, setUserMenuOpen] = useState(false)
     const navigate = useNavigate()
 
-    const handleSearch = (e: React.SubmitEvent) => {
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (searchQuery.trim()) {
-            navigate('/search?q=${encodeURLComponent(searchQurey.trim())}')
+        const q = searchQuery.trim()
+        if (q) {
+            navigate(`/search?q=${encodeURIComponent(q)}`)
             setSearchQuery("")
         }
     }
-    const handelLogout = ()=>{
+    const handelLogout = () => {
         setUserMenuOpen(false)
         navigate("/")
     }
